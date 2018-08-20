@@ -10,7 +10,7 @@
 <body>
 	<header id="header" class="header">
 <nav class="menu">
-<div class="logo"><a href="<?=URL_BASE?>" title="">SlimFramework</a></div>
+<div class="logo"><a href="<?=base_url()?>" title="">SlimFramework</a></div>
 <div class="menu-direito">
 	<ul>
 		<li>Home</li>

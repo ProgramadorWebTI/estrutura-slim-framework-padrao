@@ -1,4 +1,5 @@
 *{margin: 0px;padding: 0px;box-sizing: border-box; font-family: 'Open Sans', sans-serif;}
+body{height: 100vh;}
 ul{list-style-type: none;}
 a{text-decoration: none; color:  #fff;}
 header{width: 100%;background-color: #ccc;height: 50px;}
@@ -41,4 +42,16 @@ table.tabela h3 {
 .tabela tr td {
     background-color: white;
     padding: 5px 5px 5px 10px;
+}
+@media only screen and (max-width: 324px) {
+    .table-responsive-x {
+        overflow-y: auto; 
+    }
+    .menu-direito {
+        display: none;
+    }
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
 }

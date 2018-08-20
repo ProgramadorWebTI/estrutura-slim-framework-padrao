@@ -11,12 +11,19 @@ class Page
     public function __construct($opts = array())
     {
         $this->options = array_merge($this->defaults, $opts);
+        if (!file_exists($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR)) {
+            $path_tpl = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "projetoSlimPadrao" . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR;
+            $path_cach = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "projetoSlimPadrao" . DIRECTORY_SEPARATOR . "views-cache" . DIRECTORY_SEPARATOR;
+        } else {
+            $path_tpl = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR;
+            $path_cach = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "views-cache" . DIRECTORY_SEPARATOR;
+        }
         $config = array(
-            "tpl_dir" => $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR,
-            "cache_dir" => $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "views-cache" . DIRECTORY_SEPARATOR,
-            "debug" => false,
+            "tpl_dir" => $path_tpl,
+            "cache_dir" => $path_cach,
+            "debug" => true,
             "php_enabled" => true,
-            "tpl_ext" => "php"
+            "tpl_ext" => "php",
         );
         Tpl::configure($config);
         $this->tpl = new Tpl();
@@ -42,4 +49,4 @@ class Page
         $this->tpl->draw("footer");
     }
 
-} 
+}
